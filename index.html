@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Forensic age estimation web app using study models.">
+    <title>Forensic Age Estimation</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <script src="assets/forensic-age-models.v5.js" defer></script>
+    <script src="app.js?v=5" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Forensic Age Estimation</h1>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="tool-panel" aria-labelledby="inputs-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Inputs</p>
+            <h2 id="inputs-title">Case Details</h2>
+          </div>
+          <button class="quiet-button" type="button" id="reset-button">Reset</button>
+        </div>
+
+        <div class="field-group">
+          <span class="field-label">Sex</span>
+          <div class="segmented" id="sex-options" role="radiogroup" aria-label="Sex"></div>
+        </div>
+
+        <div class="field-group">
+          <span class="field-label">Method</span>
+          <div class="method-grid" id="method-options" role="radiogroup" aria-label="Age estimation method"></div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label-row">
+            <span class="field-label">Training Basis</span>
+            <span class="range-note" id="basis-count"></span>
+          </div>
+          <div class="basis-grid" id="basis-options"></div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label-row">
+            <span class="field-label">Measurements</span>
+            <span class="range-note" id="measurement-note"></span>
+          </div>
+          <div class="input-grid" id="feature-inputs"></div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label-row">
+            <span class="field-label">Models</span>
+            <span class="range-note" id="model-count"></span>
+          </div>
+          <div class="button-row">
+            <button class="quiet-button" type="button" id="select-all-button">Select All</button>
+            <button class="quiet-button" type="button" id="clear-models-button">Clear</button>
+          </div>
+          <div class="model-grid" id="model-options"></div>
+        </div>
+
+        <div class="action-row">
+          <button class="primary-button" type="button" id="estimate-button">Estimate Age</button>
+          <p class="status-message" id="status-message" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Output</p>
+            <h2 id="results-title">Estimated Age</h2>
+          </div>
+          <div class="trained-pill" id="trained-pill"></div>
+        </div>
+
+        <div class="summary-band" id="summary-band">
+          <span class="summary-label">Ready</span>
+          <strong>Enter measurements and run the selected models.</strong>
+        </div>
+
+        <div class="results-list" id="results-list"></div>
+
+        <div class="details-strip" id="details-strip"></div>
+      </section>
+    </main>
+  </body>
+</html>
